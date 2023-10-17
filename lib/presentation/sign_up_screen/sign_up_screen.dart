@@ -9,7 +9,8 @@ import 'package:galdan_s_application2/widgets/app_bar/custom_app_bar.dart';
 import 'package:galdan_s_application2/widgets/custom_checkbox_button.dart';
 import 'package:galdan_s_application2/widgets/custom_elevated_button.dart';
 import 'package:galdan_s_application2/widgets/custom_text_form_field.dart';
-import 'package:galdan_s_application2/presentation/sign_up_success_dialog/sign_up_success_dialog.dart';
+import 'package:galdan_s_application2/domain/googleauth/google_auth_helper.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // ignore_for_file: must_be_immutable
 class SignUpScreen extends StatelessWidget {
@@ -195,7 +196,7 @@ class SignUpScreen extends StatelessWidget {
     return CustomElevatedButton(
         text: "lbl_sign_up".tr,
         onPressed: () {
-          onTapSignUpButton(context);
+          signUpUsingGoogle(context);
         });
   }
 
@@ -209,19 +210,53 @@ class SignUpScreen extends StatelessWidget {
     NavigatorService.goBack();
   }
 
-  /// Displays an [AlertDialog] with a custom content widget using the
-  /// provided [BuildContext].
+  /// Performs a Google sign-in and returns a [GoogleUser] object.
   ///
-  /// The custom content widget is created by calling
-  /// [SignUpSuccessDialog.builder] method.
-  onTapSignUpButton(BuildContext context) {
+  /// If the sign-in is successful, the [onSuccessGoogleAuthResponse] method is called
+  /// with the [GoogleUser] object and [context] as a parameters.
+  /// If the sign-in fails, the [onErrorGoogleAuthResponse] method is called with the [context] as a parameter.
+  ///
+  /// Throws an exception if the Google sign-in process fails.
+  signUpUsingGoogle(BuildContext context) async {
+    await GoogleAuthHelper().googleSignInProcess().then((googleUser) {
+      if (googleUser != null) {
+        onSuccessGoogleAuthResponse(googleUser, context);
+      } else {
+        onErrorGoogleAuthResponse(context);
+      }
+    }).catchError((onError) {
+      onErrorGoogleAuthResponse(context);
+    });
+  }
+
+  /// Navigates to the homeContainerScreen when the action is triggered.
+
+  /// When the action is triggered, this function uses the [NavigatorService]
+  /// to push the named route for the homeContainerScreen.
+  onSuccessGoogleAuthResponse(
+    GoogleSignInAccount googleUser,
+    BuildContext context,
+  ) {
+    NavigatorService.pushNamedAndRemoveUntil(
+      AppRoutes.homeContainerScreen,
+    );
+  }
+
+  /// Displays an alert dialog when the action is triggered.
+  /// The dialog box contains a title and a message with the `There was an error signing up`
+  onErrorGoogleAuthResponse(BuildContext context) {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-              content: SignUpSuccessDialog.builder(context),
-              backgroundColor: Colors.transparent,
-              contentPadding: EdgeInsets.zero,
-              insetPadding: const EdgeInsets.only(left: 0),
+              title: const Text('Signup error'),
+              content: const Text('There was an error signing up'),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Ok'))
+              ],
             ));
   }
 

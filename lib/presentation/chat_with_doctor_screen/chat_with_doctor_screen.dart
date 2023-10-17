@@ -41,7 +41,7 @@ class ChatWithDoctorScreen extends StatelessWidget {
                             SizedBox(height: 20.v),
                             _buildClose(context,
                                 userName: "msg_dr_marcus_horizon".tr,
-                                time: "lbl_10_min_ago".tr),
+                                timeStamp: "lbl_10_min_ago".tr),
                             SizedBox(height: 10.v),
                             Container(
                                 margin: EdgeInsets.only(right: 122.h),
@@ -66,7 +66,7 @@ class ChatWithDoctorScreen extends StatelessWidget {
                             SizedBox(height: 15.v),
                             _buildClose(context,
                                 userName: "msg_dr_marcus_horizon".tr,
-                                time: "lbl_5_min_ago".tr),
+                                timeStamp: "lbl_5_min_ago".tr),
                             SizedBox(height: 10.v),
                             Container(
                                 width: 221.h,
@@ -92,7 +92,7 @@ class ChatWithDoctorScreen extends StatelessWidget {
                             SizedBox(height: 15.v),
                             _buildClose(context,
                                 userName: "msg_dr_marcus_horizon".tr,
-                                time: "lbl_online".tr),
+                                timeStamp: "lbl_online".tr),
                             SizedBox(height: 10.v),
                             Container(
                                 height: 22.v,
@@ -203,7 +203,7 @@ class ChatWithDoctorScreen extends StatelessWidget {
   Widget _buildClose(
     BuildContext context, {
     required String userName,
-    required String time,
+    required String timeStamp,
   }) {
     return Row(children: [
       CustomImageView(
@@ -218,7 +218,7 @@ class ChatWithDoctorScreen extends StatelessWidget {
                 style: theme.textTheme.titleSmall!
                     .copyWith(color: theme.colorScheme.onPrimary)),
             SizedBox(height: 7.v),
-            Text(time,
+            Text(timeStamp,
                 style: theme.textTheme.labelMedium!
                     .copyWith(color: appTheme.gray500))
           ]))

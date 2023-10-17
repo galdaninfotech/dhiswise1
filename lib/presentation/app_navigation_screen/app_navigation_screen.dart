@@ -43,140 +43,140 @@ class AppNavigationScreen extends StatelessWidget {
                           children: [
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Splash Screen".tr,
+                              userName: "Splash Screen".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.splashScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Onboarding One".tr,
+                              userName: "Onboarding One".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.onboardingOneScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Onboarding Two".tr,
+                              userName: "Onboarding Two".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.onboardingTwoScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Onboarding Three".tr,
+                              userName: "Onboarding Three".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.onboardingThreeScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Onboarding Four".tr,
+                              userName: "Onboarding Four".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.onboardingFourScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Login".tr,
+                              userName: "Login".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.loginScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Sign Up".tr,
+                              userName: "Sign Up".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.signUpScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText:
+                              userName:
                                   "Reset Password - Email - Tab Container".tr,
                               onTapScreenTitle: () => onTapScreenTitle(AppRoutes
                                   .resetPasswordEmailTabContainerScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Reset Password - Verify Code".tr,
+                              userName: "Reset Password - Verify Code".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.resetPasswordVerifyCodeScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Create New Password".tr,
+                              userName: "Create New Password".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.createNewPasswordScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Home - Container".tr,
+                              userName: "Home - Container".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.homeContainerScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Top Doctor".tr,
+                              userName: "Top Doctor".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.topDoctorScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Find Doctors".tr,
+                              userName: "Find Doctors".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.findDoctorsScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Doctor Detail".tr,
+                              userName: "Doctor Detail".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.doctorDetailScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Booking Doctor".tr,
+                              userName: "Booking Doctor".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.bookingDoctorScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Chat with Doctor".tr,
+                              userName: "Chat with Doctor".tr,
                               onTapScreenTitle: () => onTapScreenTitle(
                                   AppRoutes.chatWithDoctorScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Audio Call".tr,
+                              userName: "Audio Call".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.audioCallScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Video Call".tr,
+                              userName: "Video Call".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.videoCallScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Articles".tr,
+                              userName: "Articles".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.articlesScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Pharmacy".tr,
+                              userName: "Pharmacy".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.pharmacyScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Drugs Detail".tr,
+                              userName: "Drugs Detail".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.drugsDetailScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "My Cart".tr,
+                              userName: "My Cart".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.myCartScreen),
                             ),
                             _buildScreenTitle(
                               context,
-                              onboardingText: "Location".tr,
+                              userName: "Location".tr,
                               onTapScreenTitle: () =>
                                   onTapScreenTitle(AppRoutes.locationScreen),
                             ),
@@ -251,7 +251,7 @@ class AppNavigationScreen extends StatelessWidget {
   /// Common widget
   Widget _buildScreenTitle(
     BuildContext context, {
-    required String onboardingText,
+    required String userName,
     Function? onTapScreenTitle,
   }) {
     return GestureDetector(
@@ -270,7 +270,7 @@ class AppNavigationScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.h),
                 child: Text(
-                  onboardingText,
+                  userName,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0XFF000000),
